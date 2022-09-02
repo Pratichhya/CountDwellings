@@ -3,7 +3,7 @@
 *.TIFF
 *.pt
 *.pkl
-*.ipynb
+
 __pycache__
 *.zip
 *.npy

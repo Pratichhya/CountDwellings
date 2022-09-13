@@ -73,10 +73,12 @@ def main(net):
             net, e, val_data)
         print(f"Evaluation Loss in {e} is {valid_loss}")
         print(f"Root mean squared error is {rmse}")
+        sum_predicted = sum(no_of_buildings)
+        sum_actual = sum(actual_number)
         with open("./count_record.txt", "a") as a_file:
             a_file.write("\n")
             a_file.write(
-                f"Total number of buildings observed is {no_of_buildings}/{actual_number} during epoch {e} Evaluation phase")
+                f"Total number of buildings observed is {sum_predicted}/{sum_actual} during epoch {e} Evaluation phase")
         wandb.log({'Valid loss': valid_loss, 'Val RMSE': rmse}, step=e)
         del valid_loss, rmse, no_of_buildings, actual_number
 
